@@ -1,0 +1,10 @@
+diff --git a/some-other-file.php b/some-other-file.php
+index ebcf12d..9114fdb 100644
+--- a/some-other-file.php
++++ b/some-other-file.php
+@@ -1,3 +1,5 @@
+ <?php
+ 
+ require 'Foo.php';
++
++$foo = new Foo();

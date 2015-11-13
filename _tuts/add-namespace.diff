@@ -1,0 +1,22 @@
+diff --git a/Foo.php b/Foo.php
+index ed1118e..05f205e 100644
+--- a/Foo.php
++++ b/Foo.php
+@@ -1,5 +1,7 @@
+ <?php
+ 
++namespace Acme\Tools;
++
+ class Foo
+ {
+     public function doAwesomeThings()
+diff --git a/some-other-file.php b/some-other-file.php
+index 9114fdb..8c91dbc 100644
+--- a/some-other-file.php
++++ b/some-other-file.php
+@@ -2,4 +2,4 @@
+ 
+ require 'Foo.php';
+ 
+-$foo = new Foo();
++$foo = new \Acme\Tools\Foo();

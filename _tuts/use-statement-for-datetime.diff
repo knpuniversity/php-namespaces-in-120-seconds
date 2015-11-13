@@ -1,0 +1,21 @@
+diff --git a/Foo.php b/Foo.php
+index c9e04a9..5cc1c66 100644
+--- a/Foo.php
++++ b/Foo.php
+@@ -2,12 +2,14 @@
+ 
+ namespace Acme\Tools;
+ 
++use \DateTime;
++
+ class Foo
+ {
+     public function doAwesomeThings()
+     {
+         echo 'Hi listeners';
+ 
+-        $dt = new \DateTime();
++        $dt = new DateTime();
+     }
+ }
+\ No newline at end of file

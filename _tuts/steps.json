@@ -1,0 +1,55 @@
+{
+    "steps": [
+        {
+            "id": "start",
+            "name": "start",
+            "description": null
+        },
+        {
+            "id": "foo-say-hi",
+            "name": "Foo: Say hi",
+            "description": null
+        },
+        {
+            "id": "no-namespace-instantiate-foo",
+            "name": "No Namespace: Instantiate Foo",
+            "description": null
+        },
+        {
+            "id": "add-namespace",
+            "name": "Add namespace",
+            "description": null
+        },
+        {
+            "id": "add-use-statement-with-alias",
+            "name": "Add use statement with alias",
+            "description": null
+        },
+        {
+            "id": "remove-alias",
+            "name": "Remove alias",
+            "description": null
+        },
+        {
+            "id": "adding-datetime",
+            "name": "Adding DateTime",
+            "description": null
+        },
+        {
+            "id": "use-datetime",
+            "name": "Use \\DateTime",
+            "description": null
+        },
+        {
+            "id": "use-statement-for-datetime",
+            "name": "Use statement for DateTime",
+            "description": null
+        },
+        {
+            "id": "no-slash-for-use-statement",
+            "name": "No slash for use statement",
+            "description": null
+        }
+    ],
+    "sha": "a0d8e71b643e722dc8d7650f0d1166e09605e0e2"
+}

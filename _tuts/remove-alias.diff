@@ -1,0 +1,13 @@
+diff --git a/some-other-file.php b/some-other-file.php
+index 9ae6b18..8ed95ea 100644
+--- a/some-other-file.php
++++ b/some-other-file.php
+@@ -2,6 +2,6 @@
+ 
+ require 'Foo.php';
+ 
+-use \Acme\Tools\Foo as SomeFooClass;
++use \Acme\Tools\Foo;
+ 
+-$foo = new SomeFooClass();
++$foo = new Foo();
