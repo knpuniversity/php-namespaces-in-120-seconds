@@ -40,7 +40,7 @@ use Food\Tasty\Pizza as ItalianTreat;
 
 echo \$pizza->eat();
 EOF
-        )
+            )
             ->addFileContents('Pizza.php', <<<EOF
 <?php
 
@@ -54,7 +54,7 @@ class Pizza
     }
 }
 EOF
-        , true)
+            , true)
             ->setEntryPointFilename('eat.php')
         ;
 

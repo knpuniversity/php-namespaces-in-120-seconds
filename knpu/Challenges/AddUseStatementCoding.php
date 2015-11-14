@@ -37,7 +37,7 @@ require 'Pizza.php';
 
 echo \$pizza->eat();
 EOF
-        )
+            )
             ->addFileContents('Pizza.php', <<<EOF
 <?php
 
@@ -51,7 +51,7 @@ class Pizza
     }
 }
 EOF
-        , true)
+            , true)
             ->setEntryPointFilename('eat.php')
         ;
 
