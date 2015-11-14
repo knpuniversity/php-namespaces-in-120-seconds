@@ -9,54 +9,27 @@ Let's go!
 
 Meet `Foo`. He's a PHP 5.2 class that does a lot of important things:
 
-    // Foo.php
-    class Foo
-    {
-        public function doAwesomeFooThings()
-        {
-
-        }
-    }
+[[[ code('b56fd29496') ]]]
 
 `Foo`, say hi to the listener:
 
-    class Foo
-    {
-        public function doAwesomeFooThings()
-        {
-            echo 'say Hi to the listeners';
-        }
-    }
+[[[ code('521bce7fd3') ]]]
 
 Ok, so `Foo`'s humor is a bit old too.
 
 Using `Foo` is easy - simply `new Foo()`:
 
-    // use_foo.php
-
-    require 'Foo.php';
-
-    $foo = new Foo();
+[[[ code('f9ed47a6db') ]]]
 
 To keep up with the times, let's put `Foo` in a brand new PHP 5.3 namespace.
 A namespace is like a directory and by adding `namespace`, `Foo` now lives in
 `Acme\Tools`:
 
-    // Foo.php
-
-    namespace Acme\Tools;
-
-    class Foo
-    {
-        public function doAwesomeFooThings()
-        {
-
-        }
-    }
+[[[ code('32d4d7b16a') ]]]
 
 To use `Foo`, we have to call him by his fancy new name:
 
-    $foo = new \Acme\Tools\Foo();
+[[[ code('4624257bf7') ]]]
 
 This is just like referring to a file by its absolute path.
 
@@ -67,71 +40,38 @@ gravy.
 
 Since running around with this giant name is a drag, let's add a shortcut:
 
-    use Acme\Tools\Foo as SomeFooClass;
-
-    $foo = new SomeFooClass();
+[[[ code('79b7e5476b') ]]]
 
 The `use` statement lets us call `\Acme\Tools\Foo` class by a nickname.
 Heck, we can call it anything, or just let it default to `Foo`:
 
-    use \Acme\Tools\Foo;
-
-    $foo = new Foo();
+[[[ code('7d74dbe49f') ]]]
 
 Great? But what about old-school, non-namespaced PHP classes? For that, let's
 pick on `DateTime`, a handy class that's core to PHP, and got some new bells
 and whistles in PHP 5.3. For ever and ever, creating a new `DateTime` object
 looked the same: `new DateTime()`:
 
-    // use_foo.php
-    // ...
-
-    $dt = new DateTime();
+[[[ code('63511297b8') ]]]
 
 And if we're in a normal file, this still works. But in a namespaced file,
 PHP thinks you're talking about a class *in* the `Acme\Tools` namespace:
 
-    // Foo.php
-    namespace Acme\Tools;
-
-    class Foo
-    {
-        public function doAwesomeFooThings()
-        {
-            echo 'Hi listeners';
-
-            // Wrong! PHP will incorrectly think we mean Acme\Tools\DateTime!
-            $dt = new DateTime();
-        }
-    }
+[[[ code('66383ae8de') ]]]
 
 You can either refer to the class by its fully-qualified name - `\DateTime`:
 
-    $dt = new \DateTime();
+[[[ code('727da4aabf') ]]]
 
 or add a `use` statement:
 
-    // Foo.php
-    namespace Acme\Tools;
-
-    use \DateTime;
-
-    class Foo
-    {
-        public function doAwesomeFooThings()
-        {
-            echo 'Hi listeners';
-
-            // Yay!
-            $dt = new DateTime();
-        }
-    }
+[[[ code('aeb686bacd') ]]]
 
 Yes, the `use` statement looks silly, but it tells PHP that when you say
 `DateTime`, you mean the non-namespaced class `DateTime`. Oh, and get rid of
 the beginning slash with the `use` statement - everything works completely
 the same with or without these, but you typically don't see them:
 
-    use DateTime;
+[[[ code('dd56f98d18') ]]]
 
 Ok bye!
