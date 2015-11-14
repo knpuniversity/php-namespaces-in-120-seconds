@@ -26,6 +26,7 @@ EOF;
     public function getChallengeBuilder()
     {
         $builder = new ChallengeBuilder();
+
         $builder
             ->addFileContents('eat.php', <<<EOF
 <?php
@@ -53,6 +54,8 @@ EOF
         , true)
             ->setEntryPointFilename('eat.php')
         ;
+
+        return $builder;
     }
 
     public function getWorkerConfig(WorkerLoaderInterface $loader)
