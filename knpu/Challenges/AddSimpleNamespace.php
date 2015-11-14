@@ -35,6 +35,7 @@ EOF;
         $builder
             ->addFileContents('eat.php', <<<EOF
 <?php
+
 require 'Pizza.php';
 
 \$pizza = new Pizza();
@@ -54,7 +55,8 @@ class Pizza
 }
 EOF
         )
-            ->setEntryPointFilename('eat.php');
+            ->setEntryPointFilename('eat.php')
+        ;
     }
 
     public function getWorkerConfig(WorkerLoaderInterface $loader)
@@ -86,17 +88,18 @@ EOF
 
     public function configureCorrectAnswer(CorrectAnswer $correctAnswer)
     {
-        $correctAnswer->setFileContents('eat.php', <<<EOF
+        $correctAnswer
+            ->setFileContents('eat.php', <<<EOF
 <?php
+
 require 'Pizza.php';
 
 \$pizza = new \Food\Tasty\Pizza();
 
 echo \$pizza->eat();
 EOF
-        );
-
-        $correctAnswer->setFileContents('Pizza.php', <<<EOF
+            )
+            ->setFileContents('Pizza.php', <<<EOF
 <?php
 
 namespace Food\Tasty;
@@ -109,6 +112,7 @@ class Pizza
     }
 }
 EOF
-        );
+            )
+        ;
     }
 }
