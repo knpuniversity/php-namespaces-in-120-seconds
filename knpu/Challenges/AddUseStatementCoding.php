@@ -11,7 +11,7 @@ use KnpU\Gladiator\Grading\HtmlOutputGradingTool;
 use KnpU\Gladiator\Grading\PhpGradingTool;
 use KnpU\Gladiator\Worker\WorkerLoaderInterface;
 
-class AddUseStatement implements CodingChallengeInterface
+class AddUseStatementCoding implements CodingChallengeInterface
 {
     public function getQuestion()
     {

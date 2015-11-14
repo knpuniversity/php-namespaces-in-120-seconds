@@ -11,17 +11,15 @@ use KnpU\Gladiator\Grading\HtmlOutputGradingTool;
 use KnpU\Gladiator\Grading\PhpGradingTool;
 use KnpU\Gladiator\Worker\WorkerLoaderInterface;
 
-class FixMissingUseStatement implements CodingChallengeInterface
+class AddAliasToUseStatementCoding implements CodingChallengeInterface
 {
     public function getQuestion()
     {
         return <<<EOF
-After lunch, the whole team is happily coding with
-namespaces and `use` statements. Suddenly, someone
-sees an error and calls you over for help! Can you
-fix this code?
-
-P.S. This is the *most* common mistake when using namespaces.
+The intern is messing around and has changed the `use`
+statement of alias `Pizza` to `ItalianTreat`. Without
+changing that line, update the `new` line so that the
+code runs using the new alias.
 EOF;
 
     }
@@ -31,20 +29,18 @@ EOF;
         $builder = new ChallengeBuilder();
 
         $builder
-            ->addFileContents('Lunch.php', <<<EOF
+            ->addFileContents('eat.php', <<<EOF
 <?php
 
-namespace Meals;
+require 'Pizza.php';
 
-class Lunch
-{
-    public function getFood()
-    {
-        return new Pizza();
-    }
-}
+use Food\Tasty\Pizza as ItalianTreat;
+
+\$pizza = new Pizza();
+
+echo \$pizza->eat();
 EOF
-            )
+        )
             ->addFileContents('Pizza.php', <<<EOF
 <?php
 
@@ -58,19 +54,7 @@ class Pizza
     }
 }
 EOF
-            , true)
-            ->addFileContents('eat.php', <<<EOF
-<?php
-
-require 'Pizza.php';
-require 'Lunch.php';
-
-use Meals\Lunch;
-
-\$lunch = new Lunch();
-echo \$lunch->getFood()->eat();
-EOF
-            , true)
+        , true)
             ->setEntryPointFilename('eat.php')
         ;
 
@@ -93,39 +77,30 @@ EOF
 
         $htmlGrader->assertOutputContains('COWP', 'The output no longer has the COWP! Is something wrong?');
         $phpGrader->assertInputContains(
-            'Lunch.php',
-            'return new Pizza',
-            'Try to fix it without changing the `Pizza` class name in `getFood()` method.'
-        );
-        $phpGrader->assertInputDoesNotContain(
-            'Lunch.php',
-            'use \Food\Tasty\Pizza;',
-            'Don\'t use `\\` at the beginning of namespace in `use` statement. It doesn\'t necessary.'
+            'eat.php',
+            'use Food\Tasty\Pizza as ItalianTreat;',
+            'Don\'t change a `use` line with the `ItalianTreat` alias. Update a line where creating new instance of the `Pizza` class instead.'
         );
         $phpGrader->assertInputContains(
-            'Lunch.php',
-            'use Food\Tasty\Pizza;',
-            'Seems we need to add a `use` statement for the `Pizza` class in the `Lunch.php` file.'
+            'eat.php',
+            'new ItalianTreat',
+            'Did you use the `ItalianTreat` alias for creating an instance of the `Pizza` class?'
         );
     }
 
     public function configureCorrectAnswer(CorrectAnswer $correctAnswer)
     {
         $correctAnswer
-            ->setFileContents('Lunch.php', <<<EOF
+            ->setFileContents('eat.php', <<<EOF
 <?php
 
-namespace Meals;
+require 'Pizza.php';
 
-use Food\Tasty\Pizza;
+use Food\Tasty\Pizza as ItalianTreat;
 
-class Lunch
-{
-    public function getFood()
-    {
-        return new Pizza();
-    }
-}
+\$pizza = new ItalianTreat();
+
+echo \$pizza->eat();
 EOF
             )
         ;

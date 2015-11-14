@@ -12,7 +12,7 @@ use KnpU\Gladiator\Grading\HtmlOutputGradingTool;
 use KnpU\Gladiator\Grading\PhpGradingTool;
 use KnpU\Gladiator\Worker\WorkerLoaderInterface;
 
-class AddSimpleNamespace implements CodingChallengeInterface
+class AddSimpleNamespaceCoding implements CodingChallengeInterface
 {
     public function getQuestion()
     {
