@@ -10,3 +10,9 @@ chapters:
     namespaces:
         is_free:    true
         video_key:  140216186
+        challenges:
+            - Challenges\AddSimpleNamespaceCoding
+            - Challenges\AddUseStatementCoding
+            - Challenges\NamespaceLeadingSlashMC
+            - Challenges\AddAliasToUseStatementCoding
+            - Challenges\FixMissingUseStatementCoding
