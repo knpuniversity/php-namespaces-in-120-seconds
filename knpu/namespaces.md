@@ -1,5 +1,4 @@
-PHP Namespaces in 120 Seconds
-=============================
+# PHP Namespaces in 120 Seconds
 
 Time to master PHP 5.3 namespaces! The good news is, namespaces are easy!
 
@@ -21,6 +20,8 @@ Using `Foo` is easy - simply `new Foo()`:
 
 [[[ code('f9ed47a6db') ]]]
 
+## Adding a namespace
+
 To keep up with the times, let's put `Foo` in a brand new PHP 5.3 namespace.
 A namespace is like a directory and by adding `namespace`, `Foo` now lives in
 `Acme\Tools`:
@@ -38,6 +39,8 @@ from one directory, into a bunch of sub-directories. To refer to a class,
 use its fully-qualified name, starting with the slash. From here, it's all
 gravy.
 
+## The use Statement
+
 Since running around with this giant name is a drag, let's add a shortcut:
 
 [[[ code('79b7e5476b') ]]]
@@ -46,6 +49,8 @@ The `use` statement lets us call `\Acme\Tools\Foo` class by a nickname.
 Heck, we can call it anything, or just let it default to `Foo`:
 
 [[[ code('7d74dbe49f') ]]]
+
+## The non-namespaced DateTime Class
 
 Great? But what about old-school, non-namespaced PHP classes? For that, let's
 pick on `DateTime`, a handy class that's core to PHP, and got some new bells
