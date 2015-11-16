@@ -79,7 +79,7 @@ EOF
         $phpGrader->assertInputContains(
             'eat.php',
             'use Food\Tasty\Pizza as ItalianTreat;',
-            'Don\'t change a `use` line with the `ItalianTreat` alias. Update a line where creating new instance of the `Pizza` class instead.'
+            'Don\'t change the `use` line with the `ItalianTreat` alias. Instead, update the line where you create a new instance of the `Pizza` class to work with the `ItalianTreat` alias.'
         );
         $phpGrader->assertInputContains(
             'eat.php',
