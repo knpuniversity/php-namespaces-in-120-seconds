@@ -5,10 +5,8 @@ summary: |
     "use" and "\") and show you how they work.
 
 illustration: php-namespaces-in-120-seconds.png
-hasCodeDownload: 0
 
 chapters:
     namespaces:
-        title:      Namespaces
         is_free:    true
         video_key:  140216186
