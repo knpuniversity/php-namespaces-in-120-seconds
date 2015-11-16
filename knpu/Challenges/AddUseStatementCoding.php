@@ -74,8 +74,8 @@ EOF
 
         $htmlGrader->assertOutputContains('COWP', 'The output no longer has the COWP! Is something wrong?');
         $phpGrader->assertInputDoesNotContain('eat.php', 'use \Food\Tasty\Pizza', 'Don\'t use `\\` at the beginning of namespace in `use` statement. It doesn\'t necessary.');
-        $phpGrader->assertInputContains('eat.php', 'use Food\Tasty\Pizza', 'You should to add a `use` statement for the `Pizza` class.');
-        $phpGrader->assertInputDoesNotContain('eat.php', 'new \Food\Tasty\Pizza', 'You don\'t need to use a full namespace anymore when create an instance of `Pizza` class.');
+        $phpGrader->assertInputContains('eat.php', 'use Food\Tasty\Pizza', 'You should add a `use` statement for the `Pizza` class.');
+        $phpGrader->assertInputDoesNotContain('eat.php', 'new Food\Tasty\Pizza', 'You don\'t need to use a full namespace anymore when create an instance of the `Pizza` class.');
     }
 
     public function configureCorrectAnswer(CorrectAnswer $correctAnswer)

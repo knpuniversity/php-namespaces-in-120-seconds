@@ -69,11 +69,13 @@ class that is in the current file's namespace *plus* this
 namespace. For example:
 
 ```php
+// namespaced_file.php
 namespace Zoo;
 
 \$koala = new Animal\Adorable\Koala();
 // "Class not found Zoo\Animal\Adorable\Koala"
-
+```php
+// no_namespace.php
 \$koala = new \Animal\Adorable\Koala();
 // This works!
 ```

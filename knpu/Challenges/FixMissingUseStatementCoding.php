@@ -31,6 +31,20 @@ EOF;
         $builder = new ChallengeBuilder();
 
         $builder
+            ->addFileContents('eat.php', <<<EOF
+<?php
+
+require 'Pizza.php';
+require 'Lunch.php';
+
+use Meals\Lunch;
+
+\$lunch = new Lunch();
+echo \$lunch->getFood()->eat();
+EOF
+            , true)
+            ->setEntryPointFilename('eat.php')
+
             ->addFileContents('Lunch.php', <<<EOF
 <?php
 
@@ -59,19 +73,6 @@ class Pizza
 }
 EOF
             , true)
-            ->addFileContents('eat.php', <<<EOF
-<?php
-
-require 'Pizza.php';
-require 'Lunch.php';
-
-use Meals\Lunch;
-
-\$lunch = new Lunch();
-echo \$lunch->getFood()->eat();
-EOF
-            , true)
-            ->setEntryPointFilename('eat.php')
         ;
 
         return $builder;

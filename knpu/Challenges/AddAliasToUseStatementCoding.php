@@ -17,7 +17,7 @@ class AddAliasToUseStatementCoding implements CodingChallengeInterface
     {
         return <<<EOF
 The intern is messing around and has changed the `use`
-statement of alias `Pizza` to `ItalianTreat`. Without
+statement for `Pizza` to use an alias: `ItalianTreat`. Without
 changing that line, update the `new` line so that the
 code runs using the new alias.
 EOF;
