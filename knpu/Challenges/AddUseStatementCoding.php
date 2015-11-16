@@ -6,25 +6,19 @@ use KnpU\Gladiator\CodingChallenge\ChallengeBuilder;
 use KnpU\Gladiator\CodingChallenge\CodingContext;
 use KnpU\Gladiator\CodingChallenge\CodingExecutionResult;
 use KnpU\Gladiator\CodingChallenge\CorrectAnswer;
-use KnpU\Gladiator\CodingChallenge\Exception\GradingException;
 use KnpU\Gladiator\CodingChallengeInterface;
 use KnpU\Gladiator\Grading\HtmlOutputGradingTool;
 use KnpU\Gladiator\Grading\PhpGradingTool;
 use KnpU\Gladiator\Worker\WorkerLoaderInterface;
 
-class AddSimpleNamespace implements CodingChallengeInterface
+class AddUseStatementCoding implements CodingChallengeInterface
 {
     public function getQuestion()
     {
         return <<<EOF
-Everyone at the office is *starving*, but you want to
-master namespaces before celebrating with lunch.
-
-This `Pizza` class looks great. But now, give the
-class a namespace - `Food\Tasty`. Then, update `eat.php`
-to work, but **without** adding a `use` statement.
-
-Everyone is starving, and depending on you!
+Next, see if you can add a `use` statement
+to `eat.php` for the `Pizza` class. Then, you
+can shorten the line that creates the new `Pizza`.
 EOF;
 
     }
@@ -32,18 +26,22 @@ EOF;
     public function getChallengeBuilder()
     {
         $builder = new ChallengeBuilder();
+
         $builder
             ->addFileContents('eat.php', <<<EOF
 <?php
+
 require 'Pizza.php';
 
-\$pizza = new Pizza();
+\$pizza = new \Food\Tasty\Pizza();
 
 echo \$pizza->eat();
 EOF
-        )
+            )
             ->addFileContents('Pizza.php', <<<EOF
 <?php
+
+namespace Food\Tasty;
 
 class Pizza
 {
@@ -53,8 +51,11 @@ class Pizza
     }
 }
 EOF
-        )
-            ->setEntryPointFilename('eat.php');
+            , true)
+            ->setEntryPointFilename('eat.php')
+        ;
+
+        return $builder;
     }
 
     public function getWorkerConfig(WorkerLoaderInterface $loader)
@@ -71,44 +72,27 @@ EOF
         $phpGrader = new PhpGradingTool($result);
         $htmlGrader = new HtmlOutputGradingTool($result);
 
-        if (!class_exists('Food\Tasty\Pizza')) {
-            if (class_exists('Pizza')) {
-                throw new GradingException('Don\'t forget to give the `Pizza` class a namespace of `Food\Tasty`');
-            } else {
-                throw new GradingException('The `Pizza` class\'s `namespace` doesn\'t look right. Make sure it\'s `Food\Tasty`');
-            }
-        }
-
         $htmlGrader->assertOutputContains('COWP', 'The output no longer has the COWP! Is something wrong?');
-
-        $phpGrader->assertInputDoesNotContain('eat.php', 'use', 'See if you can create a new `Pizza` class, but *without* a `use` statement');
+        $phpGrader->assertInputDoesNotContain('eat.php', 'use \Food\Tasty\Pizza', 'Don\'t use `\\` at the beginning of namespace in `use` statement. It doesn\'t necessary.');
+        $phpGrader->assertInputContains('eat.php', 'use Food\Tasty\Pizza', 'You should add a `use` statement for the `Pizza` class.');
+        $phpGrader->assertInputDoesNotContain('eat.php', 'new Food\Tasty\Pizza', 'You don\'t need to use a full namespace anymore when create an instance of the `Pizza` class.');
     }
 
     public function configureCorrectAnswer(CorrectAnswer $correctAnswer)
     {
-        $correctAnswer->setFileContents('eat.php', <<<EOF
+        $correctAnswer
+            ->setFileContents('eat.php', <<<EOF
 <?php
+
 require 'Pizza.php';
 
-\$pizza = new \Food\Tasty\Pizza();
+use Food\Tasty\Pizza;
+
+\$pizza = new Pizza();
 
 echo \$pizza->eat();
 EOF
-        );
-
-        $correctAnswer->setFileContents('Pizza.php', <<<EOF
-<?php
-
-namespace Food\Tasty;
-
-class Pizza
-{
-    public function eat()
-    {
-        return 'COWP!';
-    }
-}
-EOF
-        );
+            )
+        ;
     }
 }
