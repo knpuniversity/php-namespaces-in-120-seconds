@@ -6,13 +6,15 @@ summary: |
 
 illustration: php-namespaces-in-120-seconds.png
 
+challenge_repo: knpuniversity/namespaces-challenges
+
 chapters:
     namespaces:
         is_free:    true
         video_key:  140216186
         challenges:
-            - Challenges\AddSimpleNamespaceCoding
-            - Challenges\AddUseStatementCoding
-            - Challenges\NamespaceLeadingSlashMC
-            - Challenges\AddAliasToUseStatementCoding
-            - Challenges\FixMissingUseStatementCoding
+            - addsimplenamespacecoding
+            - addusestatementcoding
+            - namespaceleadingslashmc
+            - addaliastousestatementcoding
+            - fixmissingusestatementcoding
