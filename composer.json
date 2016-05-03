@@ -2,6 +2,5 @@
     "name": "knpuniversity/php-namespaces-in-120-seconds",
     "description": "Tutorial for PHP Namespaces in 120 seconds",
     "require": {
-        "knpuniversity/gladiator": "^0.2.7"
     }
 }
