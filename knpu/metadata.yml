@@ -6,6 +6,10 @@ summary: |
 
 illustration: php-namespaces-in-120-seconds.png
 
+tuts_hero:
+    start_step: "start"
+    finish_step: "no-slash-for-use-statement"
+
 challenge_repo: knpuniversity/namespaces-challenges
 
 chapters:
