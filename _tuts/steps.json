@@ -44,11 +44,6 @@
             "id": "use-statement-for-datetime",
             "name": "Use statement for DateTime",
             "description": null
-        },
-        {
-            "id": "delete-me",
-            "name": "Delete me",
-            "description": null
         }
     ],
     "sha": "9aa43d39f7b93a2787eb082ff8e92070a4f97326"
