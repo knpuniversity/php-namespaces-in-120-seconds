@@ -46,10 +46,10 @@
             "description": null
         },
         {
-            "id": "no-slash-for-use-statement",
-            "name": "No slash for use statement",
+            "id": "delete-me",
+            "name": "Delete me",
             "description": null
         }
     ],
-    "sha": "3ad7a839efa285eaaf2b6c8185f96ab4e24f7b67"
+    "sha": "9aa43d39f7b93a2787eb082ff8e92070a4f97326"
 }

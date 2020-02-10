@@ -1,5 +1,5 @@
 diff --git a/Foo.php b/Foo.php
-index 48d27a0..ed1118e 100644
+index 6cba973..1b120e4 100644
 --- a/Foo.php
 +++ b/Foo.php
 @@ -4,6 +4,6 @@ class Foo
@@ -7,7 +7,6 @@ index 48d27a0..ed1118e 100644
      public function doAwesomeThings()
      {
 -        
-+        echo 'Hi listeners';
++        echo 'Hi Foo!';
      }
  }
-\ No newline at end of file

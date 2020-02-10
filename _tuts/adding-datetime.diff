@@ -1,22 +1,21 @@
 diff --git a/Foo.php b/Foo.php
-index 05f205e..f555fb5 100644
+index e3e03ac..bbb11bb 100644
 --- a/Foo.php
 +++ b/Foo.php
 @@ -7,5 +7,7 @@ class Foo
      public function doAwesomeThings()
      {
-         echo 'Hi listeners';
+         echo 'Hi Foo!';
 +
 +        $dt = new DateTime();
      }
  }
-\ No newline at end of file
 diff --git a/some-other-file.php b/some-other-file.php
-index 8ed95ea..718bc7a 100644
+index f5bd51f..9b3d59b 100644
 --- a/some-other-file.php
 +++ b/some-other-file.php
 @@ -5,3 +5,5 @@ require 'Foo.php';
- use \Acme\Tools\Foo;
+ use Acme\Tools\Foo;
  
  $foo = new Foo();
 +

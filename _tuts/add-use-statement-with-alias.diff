@@ -1,5 +1,5 @@
 diff --git a/some-other-file.php b/some-other-file.php
-index 8c91dbc..9ae6b18 100644
+index 8c91dbc..7622757 100644
 --- a/some-other-file.php
 +++ b/some-other-file.php
 @@ -2,4 +2,6 @@
@@ -7,6 +7,6 @@ index 8c91dbc..9ae6b18 100644
  require 'Foo.php';
  
 -$foo = new \Acme\Tools\Foo();
-+use \Acme\Tools\Foo as SomeFooClass;
++use Acme\Tools\Foo as SomeFooClass;
 +
 +$foo = new SomeFooClass();
