@@ -36,6 +36,11 @@
             "description": null
         },
         {
+            "id": "datetime-into-method",
+            "name": "DateTime into method",
+            "description": null
+        },
+        {
             "id": "use-datetime",
             "name": "Use \\DateTime",
             "description": null
@@ -46,5 +51,5 @@
             "description": null
         }
     ],
-    "sha": "9aa43d39f7b93a2787eb082ff8e92070a4f97326"
+    "sha": "0b6a89df95db917b348ace594ed41fae6192abcb"
 }

@@ -1,8 +1,8 @@
 diff --git a/Foo.php b/Foo.php
-index e012a08..fcd27ff 100644
+index b128186..a5ff7ca 100644
 --- a/Foo.php
 +++ b/Foo.php
-@@ -2,12 +2,14 @@
+@@ -2,13 +2,15 @@
  
  namespace Acme\Tools;
  
@@ -12,9 +12,10 @@ index e012a08..fcd27ff 100644
  {
      public function doAwesomeThings()
      {
-         echo 'Hi Foo!';
+         echo "Hi Foo!\n";
  
 -        $dt = new \DateTime();
 +        $dt = new DateTime();
+         echo $dt->getTimestamp()."\n";
      }
  }

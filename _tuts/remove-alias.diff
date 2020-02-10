@@ -1,8 +1,8 @@
 diff --git a/some-other-file.php b/some-other-file.php
-index 7622757..f5bd51f 100644
+index e5d8e19..830e25b 100644
 --- a/some-other-file.php
 +++ b/some-other-file.php
-@@ -2,6 +2,6 @@
+@@ -2,8 +2,8 @@
  
  require 'Foo.php';
  
@@ -11,3 +11,5 @@ index 7622757..f5bd51f 100644
  
 -$foo = new SomeFooClass();
 +$foo = new Foo();
+ 
+ $foo->doAwesomeThings();

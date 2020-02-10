@@ -1,5 +1,5 @@
 diff --git a/Foo.php b/Foo.php
-index 1b120e4..e3e03ac 100644
+index 114dd85..e05f61b 100644
 --- a/Foo.php
 +++ b/Foo.php
 @@ -1,5 +1,7 @@
@@ -11,12 +11,14 @@ index 1b120e4..e3e03ac 100644
  {
      public function doAwesomeThings()
 diff --git a/some-other-file.php b/some-other-file.php
-index 9114fdb..8c91dbc 100644
+index e094b7f..43c1ab7 100644
 --- a/some-other-file.php
 +++ b/some-other-file.php
-@@ -2,4 +2,4 @@
+@@ -2,6 +2,6 @@
  
  require 'Foo.php';
  
 -$foo = new Foo();
 +$foo = new \Acme\Tools\Foo();
+ 
+ $foo->doAwesomeThings();
