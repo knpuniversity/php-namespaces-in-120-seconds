@@ -1,82 +1,111 @@
 # PHP Namespaces in 120 Seconds
 
-Time to master PHP 5.3 namespaces! The good news is, namespaces are easy!
+I've an idea! Let's *master* PHP namespaces... and let's do it in 120 seconds.
+Sip some coffee... let's go!
 
-To prove it, we've challenged ourselves to explain them in 120 seconds.
+## Meet Foo
 
-Let's go!
+Meet `Foo`: a *perfectly* boring PHP class. Say hi `Foo`! Hilarious.
 
-Meet `Foo`. He's a PHP 5.2 class that does a lot of important things:
+To instantiate our favorite new class, I'll move over to a different file and say -
+drumroll - `$foo = new Foo()`. Tada! We can even call a method on it:
+`$foo->doAwesomeThings()`.
 
-[[[ code('b56fd29496') ]]]
+Will it work? Of course! I can open a terminal and run:
 
-`Foo`, say hi to the listener:
+```terminal
+php some-other-file.php
+```
 
-[[[ code('521bce7fd3') ]]]
+## Namespaces: Making Foo more Hipster
 
-Ok, so `Foo`'s humor is a bit old too.
+Right now, `Foo` doesn't have a namespace! To make `Foo` more hipster, let's fix
+that. Above the class, add, how about, `namespace Acme\Tools`. Usually the namespace
+of a class matches its directory, but that's not *technically* required. I just
+invented this one!
 
-Using `Foo` is easy - simply `new Foo()`:
+## Using a Namespaced Class
 
-[[[ code('f9ed47a6db') ]]]
+Congratulations! Our friend `Foo` now lives in a namespace. Putting a class in
+a namespace is a lot like putting a file in a directory. To reference it, use the
+full, long path to the class: `Acme\Tools\Foo` - just like you can use the absolute
+path to reference a file in your filesystem.
 
-## Adding a namespace
+When we try the script now:
 
-To keep up with the times, let's put `Foo` in a brand new PHP 5.3 namespace.
-A namespace is like a directory and by adding `namespace`, `Foo` now lives in
-`Acme\Tools`:
+```terminal-silent
+php some-other-file.php
+```
 
-[[[ code('32d4d7b16a') ]]]
+It still works!
 
-To use `Foo`, we have to call him by his fancy new name:
+## The Magical & Optional use Statement
 
-[[[ code('4624257bf7') ]]]
+And... that's really! Namespaces are basically a way to... make your class names
+longer! Add the namespace... then refer to the class using the namespace *plus*
+the class name. That's it.
 
-This is just like referring to a file by its absolute path.
+But... having these *long* class names right in the middle of your code is a bummer!
+To fix that, PHP namespaces have *one* more special thing: the `use` statement.
+At the top of the file, add `use Acme\Tools\Foo as SomeFooClass`.
 
-And that's really it! Adding a namespace to a class is like organizing files
-from one directory, into a bunch of sub-directories. To refer to a class,
-use its fully-qualified name, starting with the slash. From here, it's all
-gravy.
+This creates a... sort of... "shortcut". Anywhere else in this file, we can now
+just type `SomeClassFoo` and PHP will know that we're *really* referring to the
+long class name: `Acme\Tools\Foo`.
 
-## The use Statement
+```terminal-silent
+php some-other-file.php
+```
 
-Since running around with this giant name is a drag, let's add a shortcut:
+Or... if you leave off the `as` part, PHP will assume you want this alias to be
+`Foo`. That's usually how code looks.
 
-[[[ code('79b7e5476b') ]]]
+So, namespaces make class names longer... and `use` statements allow us to create
+shortcuts so we can use the "short" name in our code.
 
-The `use` statement lets us call `\Acme\Tools\Foo` class by a nickname.
-Heck, we can call it anything, or just let it default to `Foo`:
+## Core PHP Classes
 
-[[[ code('7d74dbe49f') ]]]
+In modern PHP code, pretty much *all* classes you deal with will live in a namespace...
+except for *core* PHP classes. Yep, core PHP classes do *not* live in a namespace...
+which kinda means that they live at the "root" namespace - like a file at the root
+of your filesystem.
 
-## The non-namespaced DateTime Class
+Let's play with the core `DateTime` object: `$dt = new DateTime()` and then
+`echo $dt->getTimestamp()` with a line break. When we run the script:
 
-Great? But what about old-school, non-namespaced PHP classes? For that, let's
-pick on `DateTime`, a handy class that's core to PHP, and got some new bells
-and whistles in PHP 5.3. For ever and ever, creating a new `DateTime` object
-looked the same: `new DateTime()`:
+```terminal-silent
+php some-other-file.php
+```
 
-[[[ code('63511297b8') ]]]
+It works perfectly! But... now move that *same* code into the `doAwsomeThings`
+method inside our friend `Foo`. *Now* try the code:
 
-And if we're in a normal file, this still works. But in a namespaced file,
-PHP thinks you're talking about a class *in* the `Acme\Tools` namespace:
+```terminal-silent
+php some-other-file.php
+```
 
-[[[ code('66383ae8de') ]]]
+Ah! It explodes! And check out that error!
 
-You can either refer to the class by its fully-qualified name - `\DateTime`:
+> Class Acme\Tools\DateTime not found
 
-[[[ code('727da4aabf') ]]]
+The *real* class name should just be `DateTime`. So, why does PHP think it's
+`Acme\Tools\DateTime`? Because namespaces work like directories! `Foo` lives
+in `Acme\Tools`. When we just say `DateTime`, it's the same as looking for a
+`DateTime` file inside of an `Acme/Tools` directory.
 
-or add a `use` statement:
+There are two ways to fix this. The first is to use the "fully qualified" class
+name. So, `\DateTime`. Yep... that works *just* like a filesystem.
 
-[[[ code('aeb686bacd') ]]]
+```terminal-silent
+php some-other-file.php
+```
 
-Yes, the `use` statement looks silly, but it tells PHP that when you say
-`DateTime`, you mean the non-namespaced class `DateTime`. Oh, and get rid of
-the beginning slash with the `use` statement - everything works completely
-the same with or without these, but you typically don't see them:
+*Or*... you can *use* `DateTime`... then remove the `\` below. That's really the
+same thing: there's no `\` at the beginning of a `use` statement, but you should
+pretend there is. This aliases `DateTime` to `\DateTime`.
 
-[[[ code('dd56f98d18') ]]]
+And... we're done! Namespaces make your class names longer, use statements allow
+you to create "shortcuts" so you can use short names in your code and the *whole*
+system works *exactly* like files inside directories.
 
-Ok bye!
+Have fun!
