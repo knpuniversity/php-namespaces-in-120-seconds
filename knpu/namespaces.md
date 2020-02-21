@@ -1,6 +1,6 @@
 # PHP Namespaces in 120 Seconds
 
-I've an idea! Let's *master* PHP namespaces... and let's do it in 120 seconds.
+I've an idea! Let's *master* PHP namespaces... and let's do it in 120 seconds...ish
 Sip some coffee... let's go!
 
 ## Meet Foo
@@ -26,7 +26,7 @@ invented this one!
 
 ## Using a Namespaced Class
 
-Congratulations! Our friend `Foo` now lives in a namespace. Putting a class in
+Congratulations! Our friend `Foo` now lives in a namespace. A very cozy namespace. Putting a class in
 a namespace is a lot like putting a file in a directory. To reference it, use the
 full, long path to the class: `Acme\Tools\Foo` - just like you can use the absolute
 path to reference a file in your filesystem.
@@ -41,7 +41,7 @@ It still works!
 
 ## The Magical & Optional use Statement
 
-And... that's really! Namespaces are basically a way to... make your class names
+And... that's really it! Namespaces are basically a way to... make your class names
 longer! Add the namespace... then refer to the class using the namespace *plus*
 the class name. That's it.
 
@@ -65,7 +65,7 @@ shortcuts so we can use the "short" name in our code.
 
 ## Core PHP Classes
 
-In modern PHP code, pretty much *all* classes you deal with will live in a namespace...
+In modern PHP, pretty much *all* classes you deal with will live in a namespace...
 except for *core* PHP classes. Yep, core PHP classes do *not* live in a namespace...
 which kinda means that they live at the "root" namespace - like a file at the root
 of your filesystem.
@@ -105,7 +105,6 @@ same thing: there's no `\` at the beginning of a `use` statement, but you should
 pretend there is. This aliases `DateTime` to `\DateTime`.
 
 And... we're done! Namespaces make your class names longer, use statements allow
-you to create "shortcuts" so you can use short names in your code and the *whole*
-system works *exactly* like files inside directories.
+you to create "shortcuts" and the *whole* system works *exactly* like files inside directories.
 
-Have fun!
+Ok, quick! Go add namespaces to everything!
