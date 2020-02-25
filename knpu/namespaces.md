@@ -50,7 +50,7 @@ To fix that, PHP namespaces have *one* more special thing: the `use` statement.
 At the top of the file, add `use Acme\Tools\Foo as SomeFooClass`.
 
 This creates a... sort of... "shortcut". Anywhere else in this file, we can now
-just type `SomeClassFoo` and PHP will know that we're *really* referring to the
+just type `SomeFooClass` and PHP will know that we're *really* referring to the
 long class name: `Acme\Tools\Foo`.
 
 ```terminal-silent
