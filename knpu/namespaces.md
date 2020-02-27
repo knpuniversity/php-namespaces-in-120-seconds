@@ -1,6 +1,6 @@
-# PHP Namespaces in 120 Seconds
+# PHP Namespaces in under 5 Minutes
 
-I've an idea! Let's *master* PHP namespaces... and let's do it in 120 seconds.
+I've an idea! Let's *master* PHP namespaces... and let's do it in *under* 5 minutes.
 Sip some coffee... let's go!
 
 ## Meet Foo
