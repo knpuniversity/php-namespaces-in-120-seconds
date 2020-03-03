@@ -29,7 +29,11 @@ invented this one!
 Congratulations! Our friend `Foo` now lives in a namespace. Putting a class in
 a namespace is a lot like putting a file in a directory. To reference it, use the
 full, long path to the class: `Acme\Tools\Foo` - just like you can use the absolute
-path to reference a file in your filesystem.
+path to reference a file in your filesystem:
+
+```terminal-silent
+ls /acme/tools/foo
+```
 
 When we try the script now:
 
@@ -68,7 +72,11 @@ shortcuts so we can use the "short" name in our code.
 In modern PHP code, pretty much *all* classes you deal with will live in a namespace...
 except for *core* PHP classes. Yep, core PHP classes do *not* live in a namespace...
 which kinda means that they live at the "root" namespace - like a file at the root
-of your filesystem.
+of your filesystem:
+
+```terminal-silent
+ls /some-root-file
+```
 
 Let's play with the core `DateTime` object: `$dt = new DateTime()` and then
 `echo $dt->getTimestamp()` with a line break. When we run the script:
@@ -86,12 +94,17 @@ php some-other-file.php
 
 Ah! It explodes! And check out that error!
 
-> Class Acme\Tools\DateTime not found
+> Class `Acme\Tools\DateTime` not found
 
 The *real* class name should just be `DateTime`. So, why does PHP think it's
 `Acme\Tools\DateTime`? Because namespaces work like directories! `Foo` lives
 in `Acme\Tools`. When we just say `DateTime`, it's the same as looking for a
-`DateTime` file inside of an `Acme/Tools` directory.
+`DateTime` file inside of an `Acme/Tools` directory:
+
+```terminal-silent
+cd /acme/tools
+ls DateTime    # /acme/tools/DateTime
+```
 
 There are two ways to fix this. The first is to use the "fully qualified" class
 name. So, `\DateTime`. Yep... that works *just* like a filesystem.
