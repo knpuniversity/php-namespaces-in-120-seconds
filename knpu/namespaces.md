@@ -5,11 +5,22 @@ Sip some coffee... let's go!
 
 ## Meet Foo
 
-Meet `Foo`: a *perfectly* boring PHP class. Say hi `Foo`! Hilarious.
+Meet `Foo`: a *perfectly* boring PHP class:
+
+[[[ code('b56fd29496') ]]]
+
+Say hi `Foo`! Hilarious.
+
+[[[ code('7ecd73b370') ]]]
 
 To instantiate our favorite new class, I'll move over to a different file and say -
-drumroll - `$foo = new Foo()`. Tada! We can even call a method on it:
-`$foo->doAwesomeThings()`.
+drumroll - `$foo = new Foo()`:
+
+[[[ code('f9ed47a6db') ]]]
+
+Tada! We can even call a method on it: `$foo->doAwesomeThings()`:
+
+[[[ code('dbf77bb076') ]]]
 
 Will it work? Of course! I can open a terminal and run:
 
@@ -20,16 +31,22 @@ php some-other-file.php
 ## Namespaces: Making Foo more Hipster
 
 Right now, `Foo` doesn't have a namespace! To make `Foo` more hipster, let's fix
-that. Above the class, add, how about, `namespace Acme\Tools`. Usually the namespace
-of a class matches its directory, but that's not *technically* required. I just
-invented this one!
+that. Above the class, add, how about, `namespace Acme\Tools`:
+
+[[[ code('608e841438') ]]]
+
+Usually the namespace of a class matches its directory, but that's not *technically* 
+required. I just invented this one!
 
 ## Using a Namespaced Class
 
 Congratulations! Our friend `Foo` now lives in a namespace. Putting a class in
 a namespace is a lot like putting a file in a directory. To reference it, use the
-full, long path to the class: `Acme\Tools\Foo` - just like you can use the absolute
-path to reference a file in your filesystem:
+full, long path to the class: `Acme\Tools\Foo`:
+
+[[[ code('58dcb34f4d') ]]]
+
+just like you can use the absolute path to reference a file in your filesystem:
 
 ```terminal-silent
 ls /acme/tools/foo
@@ -51,18 +68,25 @@ the class name. That's it.
 
 But... having these *long* class names right in the middle of your code is a bummer!
 To fix that, PHP namespaces have *one* more special thing: the `use` statement.
-At the top of the file, add `use Acme\Tools\Foo as SomeFooClass`.
+At the top of the file, add `use Acme\Tools\Foo as SomeFooClass`:
+
+[[[ code('78c677c9e4') ]]]
 
 This creates a... sort of... "shortcut". Anywhere else in this file, we can now
-just type `SomeClassFoo` and PHP will know that we're *really* referring to the
-long class name: `Acme\Tools\Foo`.
+just type `SomeClassFoo`:
+
+[[[ code('89e80f5582') ]]]
+
+and PHP will know that we're *really* referring to the long class name: `Acme\Tools\Foo`.
 
 ```terminal-silent
 php some-other-file.php
 ```
 
 Or... if you leave off the `as` part, PHP will assume you want this alias to be
-`Foo`. That's usually how code looks.
+`Foo`. That's usually how code looks:
+
+[[[ code('355c2b033f') ]]]
 
 So, namespaces make class names longer... and `use` statements allow us to create
 shortcuts so we can use the "short" name in our code.
@@ -79,14 +103,22 @@ ls /some-root-file
 ```
 
 Let's play with the core `DateTime` object: `$dt = new DateTime()` and then
-`echo $dt->getTimestamp()` with a line break. When we run the script:
+`echo $dt->getTimestamp()` with a line break:
+
+[[[ code('a5fc3d8462') ]]]
+
+When we run the script:
 
 ```terminal-silent
 php some-other-file.php
 ```
 
 It works perfectly! But... now move that *same* code into the `doAwsomeThings`
-method inside our friend `Foo`. *Now* try the code:
+method inside our friend `Foo`:
+
+[[[ code('925adf8718') ]]]
+
+*Now* try the code:
 
 ```terminal-silent
 php some-other-file.php
@@ -107,15 +139,22 @@ ls DateTime    # /acme/tools/DateTime
 ```
 
 There are two ways to fix this. The first is to use the "fully qualified" class
-name. So, `\DateTime`. Yep... that works *just* like a filesystem.
+name. So, `\DateTime`: 
+
+[[[ code('3023b8d513') ]]]
+
+Yep... that works *just* like a filesystem.
 
 ```terminal-silent
 php some-other-file.php
 ```
 
-*Or*... you can *use* `DateTime`... then remove the `\` below. That's really the
-same thing: there's no `\` at the beginning of a `use` statement, but you should
-pretend there is. This aliases `DateTime` to `\DateTime`.
+*Or*... you can *use* `DateTime`... then remove the `\` below: 
+
+[[[ code('2150351e16') ]]]
+
+That's really the same thing: there's no `\` at the beginning of a `use` statement, 
+but you should pretend there is. This aliases `DateTime` to `\DateTime`.
 
 And... we're done! Namespaces make your class names longer, use statements allow
 you to create "shortcuts" so you can use short names in your code and the *whole*
