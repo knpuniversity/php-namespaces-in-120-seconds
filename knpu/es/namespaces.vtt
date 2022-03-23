@@ -1,0 +1,262 @@
+WEBVTT
+
+00:00:00.076 --> 00:00:04.036 align:middle
+¡Tengo una idea!
+
+00:00:04.536 --> 00:00:06.686 align:middle
+Dominemos los espacios de nombres de PHP...
+
+00:00:07.086 --> 00:00:09.746 align:middle
+y hagámoslo en menos de 5 minutos.
+
+00:00:10.516 --> 00:00:11.406 align:middle
+Toma un poco de café...
+
+00:00:11.896 --> 00:00:16.866 align:middle
+¡vamos! Conoce a Foo: una clase
+de PHP perfectamente aburrida:
+
+00:00:17.676 --> 00:00:18.426 align:middle
+¡Saluda a Foo!
+
+00:00:19.506 --> 00:00:20.166 align:middle
+Divertidísimo.
+
+00:00:21.466 --> 00:00:25.676 align:middle
+Para instanciar nuestra nueva clase
+favorita, me desplazaré a otro archivo
+
+00:00:25.676 --> 00:00:30.216 align:middle
+y diré - redoble de
+tambores - $foo = new Foo():
+
+00:00:31.526 --> 00:00:36.746 align:middle
+¡Tada! Incluso podemos llamar a un método
+en ella: $foo->doAwesomeThings():
+
+00:00:37.556 --> 00:00:38.236 align:middle
+¿Funcionará?
+
+00:00:38.736 --> 00:00:39.486 align:middle
+¡Por supuesto!
+
+00:00:39.486 --> 00:00:42.056 align:middle
+Puedo abrir un terminal y ejecutar:
+
+00:00:42.056 --> 00:00:47.666 align:middle
+php some-other-file.php ¡Ahora mismo,
+Foo no tiene un espacio de nombres!
+
+00:00:48.386 --> 00:00:50.946 align:middle
+Para que Foo sea más
+hipster, vamos a arreglar eso.
+
+00:00:51.496 --> 00:00:56.956 align:middle
+Encima de la clase, añade,
+qué tal, namespace Acme\Tools:
+
+00:00:57.786 --> 00:01:03.696 align:middle
+Normalmente el espacio de nombres de una clase coincide
+con su directorio, pero eso no es técnicamente necesario.
+
+00:01:03.696 --> 00:01:05.446 align:middle
+¡Esto lo acabo de inventar yo!
+
+00:01:06.516 --> 00:01:07.486 align:middle
+¡Enhorabuena!
+
+00:01:07.866 --> 00:01:10.226 align:middle
+Nuestro amigo Foo vive ahora
+en un espacio de nombres.
+
+00:01:10.556 --> 00:01:17.346 align:middle
+Poner una clase en un espacio de nombres es muy
+parecido a poner un archivo en un directorio.
+
+00:01:18.036 --> 00:01:24.406 align:middle
+Para referenciarla, utiliza la ruta completa
+y larga de la clase: Acme\Tools\Foo: igual
+
+00:01:25.186 --> 00:01:29.196 align:middle
+que puedes utilizar la ruta absoluta para referenciar
+un archivo en tu sistema de archivos: Cuando
+
+00:01:29.966 --> 00:01:33.326 align:middle
+probamos ahora el script
+¡Sigue funcionando! Y...
+
+00:01:33.756 --> 00:01:35.276 align:middle
+¡eso sí que es! Los espacios de nombres
+
+00:01:35.686 --> 00:01:38.206 align:middle
+son básicamente una forma de... ¡hacer
+
+00:01:38.406 --> 00:01:39.986 align:middle
+más largos los nombres de tus clases! Añade
+
+00:01:40.646 --> 00:01:41.636 align:middle
+el espacio de nombres... y luego haz
+
+00:01:42.016 --> 00:01:45.886 align:middle
+referencia a la clase utilizando el espacio
+de nombres más el nombre de la clase. Eso es
+
+00:01:46.436 --> 00:01:46.876 align:middle
+todo. Pero...
+
+00:01:47.446 --> 00:01:52.946 align:middle
+¡tener estos largos nombres de clase justo
+en medio de tu código es un fastidio! Para
+
+00:01:53.386 --> 00:01:59.156 align:middle
+solucionarlo, los espacios de nombres de PHP
+tienen otra cosa especial: la declaración use. Al
+
+00:01:59.686 --> 00:02:06.466 align:middle
+principio del archivo, añade use
+Acme\Tools\Foo as SomeFooClass: Esto
+
+00:02:07.626 --> 00:02:09.166 align:middle
+crea una especie
+
+00:02:09.166 --> 00:02:09.646 align:middle
+de... "acceso directo". En
+
+00:02:09.646 --> 00:02:10.326 align:middle
+cualquier
+
+00:02:10.936 --> 00:02:17.236 align:middle
+otro lugar de este archivo, ahora podemos escribir
+simplemente SomeClassFoo: y PHP sabrá que
+
+00:02:17.236 --> 00:02:22.486 align:middle
+realmente nos estamos refiriendo al nombre
+largo de la clase: Acme\Tools\Foo. O...
+
+00:02:23.176 --> 00:02:29.856 align:middle
+si omites la parte as, PHP asumirá que
+quieres que este alias sea Foo. Así es
+
+00:02:30.666 --> 00:02:32.486 align:middle
+como suele quedar el código: Así,
+
+00:02:33.316 --> 00:02:36.296 align:middle
+los espacios de nombres hacen que los
+nombres de las clases sean más largos... y
+
+00:02:36.716 --> 00:02:42.406 align:middle
+las sentenciasuse nos permiten crear atajos para poder
+utilizar el nombre "corto" en nuestro código. En
+
+00:02:43.226 --> 00:02:48.306 align:middle
+el código PHP moderno, casi todas las clases con las que trates vivirán
+en un espacio de nombres... excepto las clases del núcleo de PHP.
+
+00:02:49.046 --> 00:02:51.476 align:middle
+Sí, las clases principales de PHP
+
+00:02:52.266 --> 00:02:56.436 align:middle
+no viven en un espacio de nombres... lo que
+
+00:02:57.316 --> 00:03:00.756 align:middle
+significa que viven en el
+espacio de nombres "raíz", como
+
+00:03:01.176 --> 00:03:03.306 align:middle
+un archivo en la raíz de
+tu sistema de archivos:
+
+00:03:04.166 --> 00:03:09.236 align:middle
+Juguemos con el objeto del núcleo
+DateTime: $dt = new DateTime() y
+
+00:03:09.346 --> 00:03:15.876 align:middle
+luego echo $dt->getTimestamp()
+con un salto de línea: Cuando
+
+00:03:16.726 --> 00:03:20.766 align:middle
+ejecutamos el script: ¡Funciona
+perfectamente! Pero...
+
+00:03:21.356 --> 00:03:27.506 align:middle
+ahora mueve ese mismo código al método
+doAwsomeThings dentro de nuestro amigo Foo: Ahora
+
+00:03:28.396 --> 00:03:30.356 align:middle
+prueba el código: ¡Ah!
+
+00:03:30.616 --> 00:03:32.116 align:middle
+¡Explota! ¡ Y comprueba
+
+00:03:32.216 --> 00:03:33.556 align:middle
+este error! Clase
+
+00:03:33.706 --> 00:03:41.306 align:middle
+Acme\Tools\DateTime no encontrada El nombre real de
+la clase debería ser simplemente DateTime. Entonces,
+
+00:03:41.726 --> 00:03:46.076 align:middle
+¿por qué PHP cree que es
+Acme\Tools\DateTime? ¡ Porque
+
+00:03:46.606 --> 00:03:49.326 align:middle
+los espacios de nombres funcionan
+como los directorios ! Foo
+
+00:03:50.006 --> 00:03:52.446 align:middle
+vive en Acme\Tools. Cuando
+
+00:03:53.066 --> 00:03:56.616 align:middle
+decimos simplemente DateTime,
+es lo mismo que buscar
+
+00:03:56.616 --> 00:04:00.476 align:middle
+un archivo DateTime dentro
+de un directorio Acme/Tools:
+
+00:04:01.146 --> 00:04:03.116 align:middle
+Hay dos formas de solucionar esto. La
+
+00:04:03.926 --> 00:04:07.136 align:middle
+primera es utilizar el nombre de clase
+"completamente cualificado". Así,
+
+00:04:07.446 --> 00:04:09.116 align:middle
+\DateTime : Sí...
+
+00:04:10.496 --> 00:04:12.986 align:middle
+eso funciona igual que un
+sistema de archivos. O...
+
+00:04:14.056 --> 00:04:17.526 align:middle
+puedes utilizar DateTime... y luego
+
+00:04:17.936 --> 00:04:19.466 align:middle
+eliminar el de abajo:
+
+00:04:19.726 --> 00:04:23.396 align:middle
+En realidad es lo mismo: no hay al principio de
+
+00:04:23.396 --> 00:04:27.236 align:middle
+una declaración use, pero
+debes fingir que lo hay. Esto
+
+00:04:27.236 --> 00:04:30.216 align:middle
+hace que DateTime pase a ser \DateTime. Y...
+
+00:04:30.946 --> 00:04:32.876 align:middle
+¡hemos terminado! Los espacios de nombres
+
+00:04:33.526 --> 00:04:39.146 align:middle
+hacen que los nombres de tus clases sean más largos,
+las sentencias de uso te permiten crear "atajos" para que
+
+00:04:39.146 --> 00:04:41.666 align:middle
+puedas utilizar nombres cortos en tu código y
+
+00:04:41.666 --> 00:04:47.576 align:middle
+todo el sistema funciona exactamente igual
+que los archivos dentro de los directorios. ¡
+
+00:04:47.576 --> 00:04:48.576 align:middle
+Diviértete!
