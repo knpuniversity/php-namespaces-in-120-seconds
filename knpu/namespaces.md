@@ -160,4 +160,4 @@ And... we're done! Namespaces make your class names longer, use statements allow
 you to create "shortcuts" so you can use short names in your code and the *whole*
 system works *exactly* like files inside directories.
 
-Have fun!
+Have fun! 
