@@ -78,7 +78,7 @@ O... si omites la parte `as`, PHP asumirá que quieres que este alias sea`Foo`. 
 
 Así pues, los espacios de nombres hacen que los nombres de las clases sean más largos... y las sentencias `use` nos permiten crear atajos para poder utilizar el nombre "corto" en nuestro código.
 
-## Clases básicas de PHP
+## Clases Básicas de PHP
 
 En el código PHP moderno, casi todas las clases con las que tratas viven en un espacio de nombres... excepto las clases centrales de PHP. Sí, las clases principales de PHP no viven en un espacio de nombres... lo que significa que viven en el espacio de nombres "raíz", como un archivo en la raíz de tu sistema de archivos:
 
