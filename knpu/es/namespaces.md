@@ -135,4 +135,4 @@ En realidad es lo mismo: no hay `\` al principio de una declaración `use`, pero
 
 Y... ¡hemos terminado! Los espacios de nombres hacen que los nombres de tus clases sean más largos, las sentencias de uso te permiten crear "atajos" para que puedas utilizar nombres cortos en tu código y todo el sistema funciona exactamente igual que los archivos dentro de los directorios.
 
-¡Diviértete!
+¡Diviértete! 
