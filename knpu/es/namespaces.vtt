@@ -232,11 +232,10 @@ sistema de archivos. O...
 puedes utilizar DateTime... y luego
 
 00:04:17.936 --> 00:04:19.466 align:middle
-eliminar el \ de abajo:
+eliminar el de abajo:
 
 00:04:19.726 --> 00:04:23.396 align:middle
-En realidad es lo mismo:
-no hay \ al principio de
+En realidad es lo mismo: no hay \ al principio de
 
 00:04:23.396 --> 00:04:27.236 align:middle
 una declaración use, pero
@@ -257,7 +256,7 @@ puedas utilizar nombres cortos en tu código y
 
 00:04:41.666 --> 00:04:47.576 align:middle
 todo el sistema funciona exactamente igual
-que los archivos dentro de los directorios. ¡
+que los archivos dentro de los directorios.
 
 00:04:47.576 --> 00:04:48.576 align:middle
-Diviértete!
+¡Diviértete!
